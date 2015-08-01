@@ -1,7 +1,12 @@
 <div id='container'>
-  <div ng-controller='ShortenController'>
-    <!-- invoke addlink when button is clicked -->
-
+  <div id='creator' ng-controller='ShortenController'>
+    <form>
+      <input ng-model="newLink" class='text' type='url'>
+      <button ng-click="addLink(newLink)">ADD IT</button>
+    </form>
+    <!-- <img class='spinner' src='../assets/spiffygif_46x46.gif'> -->
+    <div class='message'></div>
+    <a href="#/links"> I wanna see my <strong>links</strong> </a>
   </div>
 </div>
 

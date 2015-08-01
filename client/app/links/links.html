@@ -1,7 +1,13 @@
 <div id='container'>
-  <div ng-controller = 'LinksController'>
-    <!-- add a div? here that invokes getLinks -->
-    {{getLinks()}}
-
+<div class = "links-container" ng-controller = 'LinksController'>
+  <h2> Links </h2>
+  <div class='link' ng-repeat='link in data.links'>
+  <img src='../assets/redirect_icon.png'/>
+    <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+    <div class='title'> {{link.title}}</div>
+    <div class='original'>{{link.url}}</div>
+    <a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+  </div>   
+  <a href="#/shorten"> add a mo'fuckin <strong>link</strong> </a>
   </div>
 </div>

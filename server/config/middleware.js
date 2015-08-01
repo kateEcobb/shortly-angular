@@ -19,6 +19,10 @@ module.exports = function (app, express) {
   // authentication middleware used to decode token and made available on the request
   //app.use('/api/links', helpers.decode);
   app.use('/api/links', linkRouter); // user link router for link request
+  app.use('/:code', function(req,res){ 
+    res.redirect('/api/links/' + req.params.code)
+  })
+
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 

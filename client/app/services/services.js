@@ -1,23 +1,20 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
-  // Your code here
-  var db = '/api/links'
+.factory('Links', function ($http,$location) {
+  return { 
+    getLinks: function(){ 
+      return $http.get('/api/links/')
+    }, 
 
-  return 'snake'
-
-  var getLinks = function(){ 
-    return $http({ 
-      method: 'GET', 
-      url: db
-    })
-  };
-
-  addLink = function(link){ 
-    return $http({ 
-      method: 'POST', 
-      url: link
-    })
+    addLink: function(link){ 
+      return $http({ 
+        method: "POST",
+        url: '/api/links',
+        data: {
+          url: link
+        }
+      })
+    } 
 
   }
 
