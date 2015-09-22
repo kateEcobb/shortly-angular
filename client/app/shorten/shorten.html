@@ -1,9 +1,16 @@
+<div class="navigation"> 
+    <span ng-click='signOut()' class='logout'>Logout</span>
+</div>
 <div id='container'>
   <div id='creator' ng-controller='ShortenController'>
-    <form>
-      <input ng-model="newLink" class='text' type='url'>
+    <form novalidate name='form1'>
+      <input ng-model="newLink" class='text' name='urlinput' type='url' required>
       <button ng-click="addLink(newLink)">ADD IT</button>
     </form>
+      <div class='error' ng-show='form1.urlinput.$dirty && form1.urlinput.$invalid'>
+        <small class='error' ng-show='form1.urlinput.$error.required'>URL required.</small>
+        <small class ='error' ng-show='form1.urlinput.$error.url'>Invalid URL — do better.</small>
+      </div>
     <!-- <img class='spinner' src='../assets/spiffygif_46x46.gif'> -->
     <div class='message'></div>
     <a href="#/links"> I wanna see my <strong>links</strong> </a>

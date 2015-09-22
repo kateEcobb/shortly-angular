@@ -17,6 +17,9 @@ angular.module('shortly.auth', [])
       });
   };
 
+  $scope.submitted = false;
+  $scope.unique = false;
+
   $scope.signup = function () {
     Auth.signup($scope.user)
       .then(function (token) {
@@ -24,6 +27,7 @@ angular.module('shortly.auth', [])
         $location.path('/links');
       })
       .catch(function (error) {
+        
         console.error(error);
       });
   };

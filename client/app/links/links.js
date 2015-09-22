@@ -1,17 +1,14 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, Auth) {
   // Your code here
   $scope.data = {
     links: null
   };
 
-  $scope.redirect = function(code){ 
-    Links.redirect(code)
-      .success(function(data){ 
-        console.log("redirected!")
-      })
-  }
+  $scope.signOut = function(){ 
+    Auth.signout()
+  };
 
   $scope.getLinks = function(){
     Links.getLinks()

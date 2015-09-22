@@ -1,8 +1,12 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
+.controller('ShortenController', function ($scope, $location, Links, Auth) {
   $scope.link = {};
   //do something with $location?
+
+  $scope.signOut = function(){ 
+    Auth.signout()
+  };
 
   $scope.addLink = function(link){ 
     Links.addLink(link)
